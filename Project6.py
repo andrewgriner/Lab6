@@ -28,18 +28,17 @@ def decoder(encoded_password): # decoder function by Fabian Estrada
   return string
 
 def main():
-    while True:
+    while True: # runs until user quits
         print("\nMenu \n-------------\n1. Encode\n2. Decode \n3. Quit\n")
         userinput = int(input("Please enter an option: "))
-        if userinput ==1:
-            password = int(input("Please enter your password to encode: "))
-            encode_password(password)
+        if userinput == 1:
+            password = int(input("Please enter your password to encode: ")) # asks user for password
             print("Your password has been encoded and stored!")
-        elif userinput == 2: 
+        elif userinput == 2: # returns encoded password and og password
           encoded_password2 = encode_password(password)
           original_password = decoder(encoded_password2)
           print(f'The encoded password is {encoded_password2} and the original password is {original_password}.')
-        elif userinput ==3:
+        elif userinput ==3: # quits
             exit()
 
 if __name__=='__main__': #main function as needed
