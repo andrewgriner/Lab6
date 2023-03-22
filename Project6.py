@@ -18,21 +18,29 @@ def encode_password(password):
         encoded_password = int(encoded_password_str)
     return encoded_password
 
+def decoder(encoded_password): # decoder function by Fabian Estrada 
+  encoded_password = list(str(encoded_password)) # turns string into list
+  string = ''
+  for i in encoded_password: # iterates through the list to subtract 3 from each num
+    i = int(i)
+    i -= 3
+    string += str(i) # adds i to the string
+  return string
+
 def main():
     while True:
-        print("Menu \n-------------\n1. Encode\n2. Decode \n3. Quit\n")
-        userinput = int(input("Please enter an option:"))
+        print("\nMenu \n-------------\n1. Encode\n2. Decode \n3. Quit\n")
+        userinput = int(input("Please enter an option: "))
         if userinput ==1:
-            password = int(input("Please enter your password to encode:"))
+            password = int(input("Please enter your password to encode: "))
             encode_password(password)
             print("Your password has been encoded and stored!")
-        #if userinput ==2
-
-        if userinput ==3:
-
-            break
-
-
+        elif userinput == 2: 
+          encoded_password2 = encode_password(password)
+          original_password = decoder(encoded_password2)
+          print(f'The encoded password is {encoded_password2} and the original password is {original_password}.')
+        elif userinput ==3:
+            exit()
 
 if __name__=='__main__': #main function as needed
     main()
